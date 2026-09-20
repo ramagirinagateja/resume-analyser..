@@ -70,7 +70,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("📄 AI Resume Analyzer by Venkys.AI")
+st.title("📄 AI Resume Analyzer by Tejas.AI")
 st.write("Upload your resume and job description to analyze ATS compatibility, generate a truthful tailored resume, and see exactly what changed.")
 
 
