@@ -74,16 +74,8 @@ st.title("📄 AI Resume Analyzer by Venkys.AI")
 st.write("Upload your resume and job description to analyze ATS compatibility, generate a truthful tailored resume, and see exactly what changed.")
 
 
-# Sidebar for API Key input
-with st.sidebar:
-    st.header("Configuration")
-    openai_api_key = st.text_input(
-        "Enter your OpenAI API Key",
-        type="password"
-    )
-    st.markdown(
-        "[Create/manage your OpenAI API key](https://platform.openai.com/api-keys)"
-    )
+# Get API key securely from Streamlit Secrets
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 
 # Main Interface: Two-column layout
@@ -105,10 +97,9 @@ with col2:
 
 
 # Process analysis when button is clicked
+
 if st.button("Analyze Resume", type="primary"):
-    if not openai_api_key:
-        st.error("Please enter your OpenAI API Key in the sidebar.")
-    elif not uploaded_file:
+    if not uploaded_file:
         st.error("Please upload a resume PDF.")
     elif not job_description.strip():
         st.error("Please paste a job description.")
